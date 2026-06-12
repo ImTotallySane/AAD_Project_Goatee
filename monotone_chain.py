@@ -42,7 +42,7 @@ def lower_hull_calc(vertex_list):
 
 
 if __name__ == "__main__":
-    # Your code
+
     vertex_list = [
         (1, 1),    # Inside
         (2, 5),    # Inside

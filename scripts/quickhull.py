@@ -3,8 +3,6 @@ import time
 import os
 import math
 
-# --- 1. Utility Function: Cross Product (Orientation) ---
-
 def cross_product(p, q, r):
     """
     Calculates the 2D cross product (orientation) of vectors (q - p) and (r - q).
@@ -17,7 +15,7 @@ def cross_product(p, q, r):
     # (q_x - p_x) * (r_y - q_y) - (q_y - p_y) * (r_x - q_x)
     return (q[0] - p[0]) * (r[1] - q[1]) - (q[1] - p[1]) * (r[0] - q[0])
 
-# --- 2. QuickHull Algorithm (Average O(N log N), Worst O(N^2)) ---
+# QuickHull Algorithm
 
 def distance_to_line(p, a, b):
     """
@@ -113,7 +111,7 @@ def quick_hull(points):
     return np.array([a] + hull_segment1 + [b] + hull_segment2)
 
 
-# --- 3. Timing and Analysis Functions ---
+# Timing and Analysis Functions
 
 def load_data(filename):
     """Loads X and Y coordinates from the generated file."""
@@ -210,12 +208,10 @@ def print_analysis(results, complexity_name, complexity_term):
     print(f"This convergence confirms the algorithm's empirical time complexity is $\mathbf{{{complexity_name}}}$ ($\mathbf{{{complexity_term}}}$).")
 
 
-# --- Main Execution ---
+# Main
 
 if __name__ == "__main__":
-    
-    # --- Configuration ---
-    # Input sizes to test QuickHull (up to 1 million points)
+
     quickhull_input_sizes = [
         10, 100, 500, 1000, 2000, 10000, 50000, 100000, 250000, 500000, 1000000
     ]

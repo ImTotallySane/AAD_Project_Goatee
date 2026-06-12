@@ -4,7 +4,7 @@ import os
 import math
 from scipy.spatial import ConvexHull
 
-# --- 1. Algorithm Wrapper ---
+# Algorithm Wrapper
 
 def scipy_qhull_wrapper(points):
     """
@@ -15,12 +15,10 @@ def scipy_qhull_wrapper(points):
     # Computation happens immediately upon instantiation
     hull = ConvexHull(points)
     
-    # To match other algorithms, we pretend to return the hull points
-    # accessing hull.vertices is very cheap (O(H))
     return points[hull.vertices]
 
 
-# --- 2. Timing and Analysis Functions ---
+# Timing and Analysis Functions
 
 def load_data(filename):
     """Loads X and Y coordinates from the generated file."""
@@ -111,12 +109,12 @@ def print_analysis(results, complexity_name, complexity_term):
     print(f"This convergence confirms the algorithm's empirical time complexity is $\mathbf{{{complexity_name}}}$ ($\mathbf{{{complexity_term}}}$).")
 
 
-# --- Main Execution ---
+# Main Execution
 
 if __name__ == "__main__":
     
     # Configuration
-    # Scipy is fast, so we can test up to 1 million easily
+
     input_sizes = [
         10, 100, 500, 1000, 2000, 10000, 50000, 100000, 250000, 500000, 1000000
     ]

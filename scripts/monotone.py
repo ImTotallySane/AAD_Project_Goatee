@@ -3,8 +3,6 @@ import time
 import os
 import math
 
-# --- 1. Utility Function: Cross Product (Orientation) ---
-
 def cross_product(p, q, r):
     """
     Calculates the 2D cross product (orientation) of vectors (q - p) and (r - q).
@@ -15,7 +13,7 @@ def cross_product(p, q, r):
     # (q_x - p_x) * (r_y - q_y) - (q_y - p_y) * (r_x - q_x)
     return (q[0] - p[0]) * (r[1] - q[1]) - (q[1] - p[1]) * (r[0] - q[0])
 
-# --- 2. Monotone Chain Algorithm (O(N log N)) ---
+# Monotone Chain Algorithm
 
 def monotone_chain(points):
     """
@@ -56,7 +54,7 @@ def monotone_chain(points):
     return np.array(lower_hull[:-1] + upper_hull[:-1])
 
 
-# --- 3. Timing and Analysis Functions ---
+# Timing and Analysis Functions
 
 def load_data(filename):
     """Loads X and Y coordinates from the generated file."""
@@ -153,12 +151,10 @@ def print_analysis(results, complexity_name, complexity_term):
     print(f"This convergence confirms the algorithm's empirical time complexity is $\mathbf{{{complexity_name}}}$ ($\mathbf{{{complexity_term}}}$).")
 
 
-# --- Main Execution ---
+# Main
 
 if __name__ == "__main__":
     
-    # --- Configuration ---
-    # Input sizes to test Monotone Chain (up to 1 million points)
     monotone_chain_input_sizes = [
         10, 100, 500, 1000, 2000, 10000, 50000, 100000, 250000, 500000, 1000000
     ]

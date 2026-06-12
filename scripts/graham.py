@@ -4,7 +4,7 @@ import os
 import math
 from functools import cmp_to_key
 
-# --- 1. Utility Function: Orientation ---
+# Orientation
 
 def orientation(p, q, r):
     """
@@ -20,7 +20,7 @@ def orientation(p, q, r):
     if val == 0: return 0  # Collinear
     return 1 if val > 0 else 2 # Clockwise or Counterclockwise (2 is preferred for hull traversal)
 
-# --- 2. Graham Scan Algorithm (O(N log N)) ---
+# Graham Scan Algorithm
 
 def distSq(p1, p2):
     """Calculates squared distance between two points."""
@@ -69,7 +69,7 @@ def graham_scan(points):
     return np.array(stack)
 
 
-# --- 3. Timing and Analysis Functions ---
+# Timing and Analysis Functions
 
 def load_data(filename):
     """Loads X and Y coordinates from the generated file."""
@@ -165,11 +165,10 @@ def print_analysis(results, complexity_name, complexity_term):
     print(f"This convergence confirms the algorithm's empirical time complexity is $\mathbf{{{complexity_name}}}$ ($\mathbf{{{complexity_term}}}$).")
 
 
-# --- Main Execution ---
+# Main
 
 if __name__ == "__main__":
     
-    # --- Configuration ---
     # Input sizes to test Graham Scan (up to 1 million points)
     graham_scan_input_sizes = [
         10, 100, 500, 1000, 2000, 10000, 50000, 100000, 250000, 500000, 1000000

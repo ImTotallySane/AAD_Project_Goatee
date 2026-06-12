@@ -4,9 +4,7 @@ import os
 import math
 import random
 
-# ==========================================
-# 1. THE ALGORITHM (Randomized Ray Shooting)
-# ==========================================
+# THE ALGORITHM (Randomized Ray Shooting)
 
 def orientation(p1, p2, point) -> float:
     """
@@ -157,9 +155,7 @@ def ray_shooting_quickhull(points):
     
     return np.array(hull)
 
-# ==========================================
-# 2. DATA GENERATOR (Helper)
-# ==========================================
+# DATA GENERATOR
 
 def generate_synthetic_data(sizes):
     """Generates random data files if they don't exist."""
@@ -173,9 +169,7 @@ def generate_synthetic_data(sizes):
             np.savetxt(filename, data, delimiter=',')
     print("Data check complete.\n")
 
-# ==========================================
-# 3. EMPIRICAL ANALYSIS FRAMEWORK
-# ==========================================
+# EMPIRICAL ANALYSIS FRAMEWORK
 
 def load_data(filename):
     try:
@@ -260,14 +254,10 @@ def print_analysis(results, complexity_name, complexity_term):
     print(f"For large N, if the Ratio stabilizes (approx {constant_c_avg:.2e}), the complexity hypothesis is supported.")
     print(f"This confirms the algorithm performs consistently with O({complexity_term}).")
 
-# ==========================================
-# 4. MAIN EXECUTION
-# ==========================================
+# MAIN
 
 if __name__ == "__main__":
     
-    # 1. Configuration
-    # We test up to 500k points. (1M might take a while depending on Python overhead)
     input_sizes = [10, 100, 500, 1000, 5000, 10000, 50000, 100000, 250000, 500000]
     complexity_term = 'N log N'
     

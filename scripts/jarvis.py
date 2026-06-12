@@ -3,8 +3,6 @@ import time
 import os
 import math
 
-# --- 1. Utility Function: Orientation ---
-
 def orientation(p, q, r):
     """
     Find the orientation of the ordered triplet (p, q, r).
@@ -19,7 +17,7 @@ def orientation(p, q, r):
     if val == 0: return 0  # Collinear
     return 1 if val > 0 else 2 # Clockwise or Counterclockwise (2 is preferred for hull traversal)
 
-# --- 2. Jarvis March Algorithm (O(nh)) ---
+# Jarvis March Algorithm
 
 def jarvis_march(points):
     """
@@ -56,7 +54,7 @@ def jarvis_march(points):
     return np.array(hull)
 
 
-# --- 3. Timing and Analysis Functions (Adapted from Graham Scan structure) ---
+# Timing and Analysis Functions
 
 def load_data(filename):
     """Loads X and Y coordinates from the generated file."""
@@ -156,12 +154,10 @@ def print_analysis(results, complexity_name, complexity_term):
     print(f"This convergence confirms the algorithm's empirical time complexity is $\mathbf{{{complexity_name}}}$ ($\mathbf{{{complexity_term}}}$).")
 
 
-# --- Main Execution ---
+# Main
 
 if __name__ == "__main__":
     
-    # --- Configuration ---
-    # Input sizes to test Jarvis March (up to 1 million points)
     jarvis_march_input_sizes = [
         10, 100, 500, 1000, 2000, 10000, 50000, 100000, 250000, 500000, 1000000
     ]
